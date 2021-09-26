@@ -1,5 +1,5 @@
 <template>
-  <v-app> <v-container class="d-flex flex-wrap"><CarCard v-for="(c, i) of cars" :key="i" :car="c"/></v-container></v-app>
+  <v-app> <v-container class="d-flex flex-wrap justify-space-around" fluid><CarCard v-for="(c, i) of cars" :key="i" :car="c"/></v-container></v-app>
 </template>
 
 <script>
