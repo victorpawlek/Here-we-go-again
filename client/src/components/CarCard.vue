@@ -24,12 +24,8 @@
       </v-card-text>
 
       <v-card-actions>
-        <v-btn color="orange" text>
-          Share
-        </v-btn>
-
-        <v-btn color="orange" text>
-          Explore
+        <v-btn class="red white--text" @click="buy">
+          Buy Car
         </v-btn>
       </v-card-actions>
     </v-card>
@@ -37,11 +33,24 @@
 </template>
 
 <script>
+import axios from 'axios'
+
 export default {
   props: {
     car: {
       type: Object,
     },
+  },
+  methods: {
+    buy() {
+      let acar=this.car;
+      acar.title=`${this.car.title} SOLD!`;
+      axios({
+        method:'PATCH',
+        url: `http://localhost:3000/cars/${this.car.id}`,
+        data: acar
+      });
+    }
   },
 };
 </script>
